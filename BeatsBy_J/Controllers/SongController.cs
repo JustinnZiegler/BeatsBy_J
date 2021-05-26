@@ -93,6 +93,7 @@ namespace BeatsBy_J.Controllers
                     Title = detail.Title,
                     ArtistId = detail.ArtistId,
                     GenreId = detail.GenreId,
+                    AlbumId = detail.AlbumId,
                     //Album = detail.Album,
                     Date = detail.Date
                 };

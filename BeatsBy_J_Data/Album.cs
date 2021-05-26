@@ -26,8 +26,8 @@ namespace BeatsBy_J_Data
         public int ArtistId { get; set; }
         public virtual Artist Artist { get; set; }
 
-        [ForeignKey(nameof(Song))]
-        public int SongId { get; set; }
+        //[ForeignKey(nameof(Song))]
+        //public int? SongId { get; set; }
 
         public virtual Song Song { get; set; }
 

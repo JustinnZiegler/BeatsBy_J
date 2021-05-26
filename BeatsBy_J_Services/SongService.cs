@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace BeatsBy_J_Services
 {
@@ -22,7 +23,9 @@ namespace BeatsBy_J_Services
             {
                 OwnerId = _userId,
                 Title = model.Title,
+                ArtistId = model.ArtistId,
                 ArtistName = model.ArtistName,
+                GenreId = model.GenreId,
                 GenreName = model.GenreName,
                 AlbumId = model.AlbumId,
                 Date = model.Date,
@@ -32,11 +35,20 @@ namespace BeatsBy_J_Services
             {
                 ctx.Songs.Add(entity);
                 var artistEntity = ctx.Artists.Find(model.ArtistId);
-                var genreEntity = ctx.Genres.Find(model.GenreName);
+                artistEntity.SongsByArtist.Add(entity);
+
+                var test = ctx.Genres.ToList();
+                foreach (var item in test)
+                {
+                    if (item.GenreName == model.GenreName)
+                    {
+
+                        var genreEntity = ctx.Genres.Find(item.GenreId);
+                        genreEntity.SongsInGenre.Add(entity);
+                    }
+                }
                 //var albumEntity = ctx.Albums.Find(model.AlbumId);
 
-                artistEntity.SongsByArtist.Add(entity);
-                genreEntity.SongsInGenre.Add(entity);
                 //albumEntity.SongsInAlbum.Add(entity);
 
                 return ctx.SaveChanges() == 1;
@@ -112,6 +124,9 @@ namespace BeatsBy_J_Services
                 {
                     SongId = entity.SongId,
                     Title = entity.Title,
+                    ArtistId= entity.ArtistId,
+                    GenreId = entity.GenreId,
+                    AlbumId = entity.AlbumId,
                     //Artist = entity.Artist,
                     //Genre = entity.Genre,
                     //Album = entity.Album,
@@ -171,7 +186,7 @@ namespace BeatsBy_J_Services
                 entity.Date = model.Date;
                 entity.ArtistId = model.ArtistId;
                 entity.GenreId = model.GenreId;
-                //entity.AlbumId = model.AlbumId;
+                entity.AlbumId = model.AlbumId;
 
                 if (artistId != entity.ArtistId)
                 {

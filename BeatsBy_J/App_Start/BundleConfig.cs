@@ -23,7 +23,7 @@ namespace BeatsBy_J
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-Superhero.css",
                       "~/Content/site.css"));
         }
     }

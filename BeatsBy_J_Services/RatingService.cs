@@ -71,11 +71,13 @@ namespace BeatsBy_J_Services
 
                 return new RatingDetail()
                 {
+                    SongId = entity.SongId,
                     RatingId = entity.RatingId,
                     EnjoymentScore = entity.EnjoymentScore,
                     SongLengthScore = entity.SongLengthScore,
                     ArtistStyleScore = entity.ArtistStyleScore,
-                    Description = entity.Description
+                    Description = entity.Description,
+                    UserId = entity.UserId
                 };
             }
         }

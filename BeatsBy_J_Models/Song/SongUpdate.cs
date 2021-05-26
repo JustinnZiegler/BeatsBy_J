@@ -14,17 +14,17 @@ namespace BeatsBy_J_Models.Song
         [MaxLength(100, ErrorMessage = "Title is too long. Please shorten that shit down.")]
         public string Title { get; set; }
 
-        public int ArtistId { get; set; }
+        public int? ArtistId { get; set; }
 
-        public Artist Artist { get; set; }
+        //public Artist Artist { get; set; }
 
         public int GenreId { get; set; }
 
-        public Genre Genre { get; set; }
+        //public Genre Genre { get; set; }
 
         public int AlbumId { get; set; }
 
-        public Album Album { get; set; }
+        //public Album Album { get; set; }
 
         public DateTime Date { get; set; }
     }

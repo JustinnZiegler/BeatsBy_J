@@ -2,6 +2,7 @@
 using BeatsBy_J_Models.Album;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace BeatsBy_J_Services
             {
                 ArtistId = model.ArtistId,
                 AlbumName = model.AlbumName,
-                SongId = model.SongId,
+                //SongId = model.SongId,
                 AlbumReleaseDate = model.AlbumReleaseDate,
             };
 
@@ -52,6 +53,12 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Albums.Include(e => e.SongsInAlbum).Single(e => e.AlbumId == albumId);
+                var test = ctx.Songs.Where(e => e.AlbumId == albumId).ToList();
+                foreach (var item in test)
+                {
+                    entity.SongsInAlbum.Add(item);
+                }
+
 
                 var songsByAlbum = new List<string>();
                 foreach (var song in entity.SongsInAlbum)

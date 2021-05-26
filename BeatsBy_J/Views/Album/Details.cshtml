@@ -1,0 +1,56 @@
+﻿@model BeatsBy_J_Models.Album.AlbumDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlbumDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumReleaseDate)
+        </dd>
+
+        <dt>
+            Songs In Album
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.SongTitlesByAlbum)
+            {
+
+                string filteredList = $"{item} | ";
+                @filteredList;
+
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Update", new { id = Model.AlbumId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

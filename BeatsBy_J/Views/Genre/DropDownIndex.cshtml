@@ -1,0 +1,21 @@
+﻿@model BeatsBy_J_Models.Genre.GenreDetail
+
+@{
+    ViewBag.Title = "Bootstrap Style Dropdown";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<section>
+    <div class="well bs-component">
+        <br />
+
+        <div class="row">
+            <div class="col-xs-4 col-xs-push-0">
+                <div class="form-group">
+                    @Html.DropDownList("GenreList", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

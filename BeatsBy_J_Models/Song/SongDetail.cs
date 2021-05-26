@@ -10,12 +10,12 @@ namespace BeatsBy_J_Models.Song
     {
         public int SongId { get; set; }
 
-        public int ArtistId { get; set; }
+        public int? ArtistId { get; set; }
 
         public string ArtistName { get; set; }
 
         public int GenreId { get; set; }
-
+        public int AlbumId { get; set; }
         public string Title { get; set; }
 
         //public Artist Artist { get; set; }

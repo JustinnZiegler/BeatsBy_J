@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BeatsBy_J_Models.Rating.RatingList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnjoymentScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SongLengthScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtistStyleScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageRating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnjoymentScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SongLengthScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtistStyleScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageRating)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id=item.RatingId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RatingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RatingId })
+        </td>
+    </tr>
+}
+
+</table>

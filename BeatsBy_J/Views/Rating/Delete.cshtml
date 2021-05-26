@@ -1,0 +1,88 @@
+﻿@model BeatsBy_J_Models.Rating.RatingDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RatingDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnjoymentScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnjoymentScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SongLengthScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SongLengthScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistStyleScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistStyleScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SongId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SongId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
