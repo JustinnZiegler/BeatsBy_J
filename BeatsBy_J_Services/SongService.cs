@@ -107,6 +107,9 @@ namespace BeatsBy_J_Services
             {
                 var entity = ctx.Songs.Find(songId);
 
+                // Aaron's Edit
+                var ratingDb = ctx.Ratings.Find(songId);
+
                 //var entity = ctx.Songs.Include(e => e.Artist).Include(e => e.Album).Include(e => e.Genre).Include(e => e.RatingsForSong)
                 // .Single(e => e.SongId == songId);
 
@@ -125,6 +128,7 @@ namespace BeatsBy_J_Services
                     SongId = entity.SongId,
                     Title = entity.Title,
                     ArtistId= entity.ArtistId,
+                    ArtistName = entity.ArtistName,
                     GenreId = entity.GenreId,
                     AlbumId = entity.AlbumId,
                     //Artist = entity.Artist,

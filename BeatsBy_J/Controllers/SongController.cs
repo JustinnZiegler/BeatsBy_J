@@ -29,6 +29,10 @@ namespace BeatsBy_J.Controllers
 
         public ActionResult Create()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var GenreS = new GenreService(userId);
+            ViewBag.Genres = GenreS.GetAllGenres();
+
             ViewBag.GenreList = new SelectList(_service.Genres, "GenreId", "GenreName");
             return View();
         }

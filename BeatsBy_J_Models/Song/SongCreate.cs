@@ -22,7 +22,7 @@ namespace BeatsBy_J_Models.Song
 
         public string GenreName { get; set; }
 
-        //public Genre Genre { get; set; }
+        // public virtual Genre Genre { get; set; }
 
         public int AlbumId { get; set; }
 
