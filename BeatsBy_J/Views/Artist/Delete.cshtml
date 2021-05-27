@@ -7,6 +7,16 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
+@if (TempData.ContainsKey("NotDeleted"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["NotDeleted"]
+    </div>
+}
 <div>
     <h4>ArtistDetail</h4>
     <hr />
@@ -37,7 +47,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -29,11 +29,9 @@ namespace BeatsBy_J.Controllers
 
         public ActionResult Create()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var GenreS = new GenreService(userId);
-            ViewBag.Genres = GenreS.GetAllGenres();
+            var service = CreateSongService();
 
-            ViewBag.GenreList = new SelectList(_service.Genres, "GenreId", "GenreName");
+            ViewData["Genres"] = service.GetGenres();
             return View();
         }
 
@@ -90,6 +88,7 @@ namespace BeatsBy_J.Controllers
         {
             var _service = CreateSongService();
             var detail = _service.GetSongById(id);
+            ViewData["Genres"] = _service.GetGenres();
             var model =
                 new SongUpdate
                 {
@@ -118,7 +117,7 @@ namespace BeatsBy_J.Controllers
             }
 
             var _service = CreateSongService();
-
+            //ViewData["Genres"] = _service.GetGenres();
             if (_service.UpdateSong(model))
             {
                 TempData["SaveResult"] = "Your song was updated.";

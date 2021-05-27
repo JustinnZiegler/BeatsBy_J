@@ -82,6 +82,10 @@
     <Compile Include="Migrations\202105262024006_FifthMigration.Designer.cs">
       <DependentUpon>202105262024006_FifthMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105270453130_OneOfTheLastMigrations.cs" />
+    <Compile Include="Migrations\202105270453130_OneOfTheLastMigrations.Designer.cs">
+      <DependentUpon>202105270453130_OneOfTheLastMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105262024006_FifthMigration.resx">
       <DependentUpon>202105262024006_FifthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270453130_OneOfTheLastMigrations.resx">
+      <DependentUpon>202105270453130_OneOfTheLastMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

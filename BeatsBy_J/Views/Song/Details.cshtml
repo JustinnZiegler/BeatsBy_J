@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Details";
+    var newDate = Model.Date.ToShortDateString();
+    
 }
 
 <h2>Details</h2>
@@ -63,7 +65,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Date)
+
+            @Html.DisplayFor(model => newDate)
         </dd>
 
         <dt>
@@ -83,12 +86,12 @@
         </dd>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.RatingsForSong)
-        </dt>
+                @Html.DisplayNameFor(model => model.RatingsForSong)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.RatingsForSong)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.RatingsForSong)
+            </dd>*@
     </dl>
 </div>
 <p>

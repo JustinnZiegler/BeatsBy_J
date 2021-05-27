@@ -122,11 +122,23 @@ namespace BeatsBy_J.Controllers
         {
             var _service = CreateArtistService();
 
-            _service.DeleteArtist(id);
+            bool test = _service.DeleteArtist(id);
+            if (test)
+            {
 
-            TempData["SaveResult"] = "Your Artist was deleted.";
+                TempData["SaveResult"] = "Your Artist was deleted.";
+                return RedirectToAction(nameof(Index));
+            }
+            //else
+            //{
+            //    //return RedirectToAction($"Delete/{id}");
 
-            return RedirectToAction("Index");
+            //}
+                TempData["NotDeleted"] = "Please Delete Songs/Albums for this Artist First.";
+                return RedirectToAction(nameof(Index));
+
+
+            //return RedirectToAction("Index");
         }
 
         private ArtistService CreateArtistService()

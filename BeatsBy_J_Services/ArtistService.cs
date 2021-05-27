@@ -111,9 +111,13 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Artists.Single(e => e.ArtistId == artistId);
-
+                int initialCount = ctx.Artists.Count();
+                //get a count of artists before delete and after, then base your if statement off of that
                 ctx.Artists.Remove(entity);
-
+                if (initialCount >= ctx.Artists.Count())
+                {
+                    return false;
+                }
                 return ctx.SaveChanges() == 1;
             }
         }

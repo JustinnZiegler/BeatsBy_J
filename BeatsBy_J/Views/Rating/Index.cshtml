@@ -9,6 +9,17 @@
 <p>
     @Html.ActionLink("Rate a Song!", "Create")
 </p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -29,29 +40,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnjoymentScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SongLengthScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArtistStyleScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScoreAverage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Update", new { id=item.RatingId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RatingId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RatingId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnjoymentScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongLengthScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtistStyleScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreAverage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new { id = item.RatingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RatingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RatingId })
+            </td>
+        </tr>
+    }
 
 </table>

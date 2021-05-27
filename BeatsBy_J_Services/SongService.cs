@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Web.Mvc;
 
 namespace BeatsBy_J_Services
 {
@@ -20,10 +21,19 @@ namespace BeatsBy_J_Services
         //private GenreService _genreService = new GenreService(_userId);
         public bool CreateSong(SongCreate model)
         {
-            //var _genreService = new GenreService(_userId);
-            //var ctx = new ApplicationDbContext();
-            //var Genre = _genreService.GetGenreByName(model.GenreName);
-            //var GenreId = Genre.GenreId;
+            using (var ctx = new ApplicationDbContext())
+            {
+                //var _genreService = new GenreService(_userId);
+                //var ctx = new ApplicationDbContext();
+                //var Genre = _genreService.GetGenreByName(model.GenreName);
+                //var GenreId = Genre.GenreId;
+                string genreName = "";
+                foreach (var item in ctx.Genres.ToList())
+                {
+                    if (item.GenreId == model.GenreId)
+                        genreName = item.GenreName;
+
+                }
             var entity = new Song()
             {
                 OwnerId = _userId,
@@ -31,13 +41,11 @@ namespace BeatsBy_J_Services
                 ArtistId = model.ArtistId,
                 ArtistName = model.ArtistName,
                 GenreId = model.GenreId,
-                GenreName = model.GenreName,
+                GenreName = genreName,
                 AlbumId = model.AlbumId,
                 Date = model.Date,
             };
             //using (ctx)
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.Songs.Add(entity);
                 var artistEntity = ctx.Artists.Find(model.ArtistId);
                 artistEntity.SongsByArtist.Add(entity);
@@ -59,7 +67,18 @@ namespace BeatsBy_J_Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        public IEnumerable<SelectListItem> GetGenres()
+        {
+            using (var ctx= new ApplicationDbContext())
+            {
+                List<SelectListItem> items = new List<SelectListItem>();
+                foreach (var item in ctx.Genres.ToList())
+                {
+                    items.Add(new SelectListItem { Text = item.GenreName, Value = item.GenreId.ToString() });
+                }
+                return items;
+            }
+        }
         public IEnumerable<SongList> GetSongs()
         {
             using (var ctx = new ApplicationDbContext())
@@ -189,6 +208,12 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Songs.Find(model.SongId);
+                string genreName = "";
+                foreach (var item in ctx.Genres.ToList())
+                {
+                    if (item.GenreId == model.GenreId)
+                        genreName = item.GenreName;
+                }
 
                 int? artistId = entity.ArtistId;
                 int genreId = entity.GenreId;
@@ -199,6 +224,7 @@ namespace BeatsBy_J_Services
                 entity.ArtistId = model.ArtistId;
                 entity.GenreId = model.GenreId;
                 entity.AlbumId = model.AlbumId;
+                entity.GenreName = genreName;
 
                 if (artistId != entity.ArtistId)
                 {
