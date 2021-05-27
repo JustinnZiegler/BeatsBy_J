@@ -7,13 +7,13 @@ namespace BeatsBy_J_Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class OneOfTheLastMigrations : IMigrationMetadata
+    public sealed partial class LastMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OneOfTheLastMigrations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LastMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105270453130_OneOfTheLastMigrations"; }
+            get { return "202105271939236_LastMigration"; }
         }
         
         string IMigrationMetadata.Source

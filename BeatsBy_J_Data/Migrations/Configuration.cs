@@ -10,7 +10,6 @@ namespace BeatsBy_J_Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "BeatsBy_J_Data.ApplicationDbContext";
         }
 
         protected override void Seed(BeatsBy_J_Data.ApplicationDbContext context)

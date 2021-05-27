@@ -58,33 +58,9 @@
     <Compile Include="Artist.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202105260127052_InitialCreate.cs" />
-    <Compile Include="Migrations\202105260127052_InitialCreate.Designer.cs">
-      <DependentUpon>202105260127052_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105260155538_Add-Migration InitialMigration.cs" />
-    <Compile Include="Migrations\202105260155538_Add-Migration InitialMigration.Designer.cs">
-      <DependentUpon>202105260155538_Add-Migration InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105261424047_SecondMigration.cs" />
-    <Compile Include="Migrations\202105261424047_SecondMigration.Designer.cs">
-      <DependentUpon>202105261424047_SecondMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105261510002_ThirdMigration.cs" />
-    <Compile Include="Migrations\202105261510002_ThirdMigration.Designer.cs">
-      <DependentUpon>202105261510002_ThirdMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105261538237_FourthMigration.cs" />
-    <Compile Include="Migrations\202105261538237_FourthMigration.Designer.cs">
-      <DependentUpon>202105261538237_FourthMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105262024006_FifthMigration.cs" />
-    <Compile Include="Migrations\202105262024006_FifthMigration.Designer.cs">
-      <DependentUpon>202105262024006_FifthMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105270453130_OneOfTheLastMigrations.cs" />
-    <Compile Include="Migrations\202105270453130_OneOfTheLastMigrations.Designer.cs">
-      <DependentUpon>202105270453130_OneOfTheLastMigrations.cs</DependentUpon>
+    <Compile Include="Migrations\202105271939236_LastMigration.cs" />
+    <Compile Include="Migrations\202105271939236_LastMigration.Designer.cs">
+      <DependentUpon>202105271939236_LastMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,26 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105260127052_InitialCreate.resx">
-      <DependentUpon>202105260127052_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105260155538_Add-Migration InitialMigration.resx">
-      <DependentUpon>202105260155538_Add-Migration InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105261424047_SecondMigration.resx">
-      <DependentUpon>202105261424047_SecondMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105261510002_ThirdMigration.resx">
-      <DependentUpon>202105261510002_ThirdMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105261538237_FourthMigration.resx">
-      <DependentUpon>202105261538237_FourthMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105262024006_FifthMigration.resx">
-      <DependentUpon>202105262024006_FifthMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105270453130_OneOfTheLastMigrations.resx">
-      <DependentUpon>202105270453130_OneOfTheLastMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105271939236_LastMigration.resx">
+      <DependentUpon>202105271939236_LastMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
