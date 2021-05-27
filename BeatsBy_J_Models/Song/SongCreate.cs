@@ -9,7 +9,7 @@ namespace BeatsBy_J_Models.Song
 {
     public class SongCreate
     {
-        [Required]
+        //[Required]
         [MaxLength(100, ErrorMessage = "Title is too long. Please shorten that shit down.")]
         public string Title { get; set; }
 
@@ -28,7 +28,7 @@ namespace BeatsBy_J_Models.Song
 
         // public Album Album { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime Date { get; set; }
     }
 }

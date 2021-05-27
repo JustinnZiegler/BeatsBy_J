@@ -34,6 +34,28 @@
             @Html.DisplayFor(model => model.GenreName)
         </dd>
 
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SongTitlesInGenre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SongTitlesInGenre)
+        </dd>*@
+
+        <dt>
+            Songs In Genre
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.SongTitlesInGenre)
+            {
+
+                string filteredList = $"{item} | ";
+                @filteredList;
+
+            }
+        </dd>
+
     </dl>
 </div>
 <p>

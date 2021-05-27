@@ -17,8 +17,13 @@ namespace BeatsBy_J_Services
         {
             _userId = userId;
         }
+        //private GenreService _genreService = new GenreService(_userId);
         public bool CreateSong(SongCreate model)
         {
+            //var _genreService = new GenreService(_userId);
+            //var ctx = new ApplicationDbContext();
+            //var Genre = _genreService.GetGenreByName(model.GenreName);
+            //var GenreId = Genre.GenreId;
             var entity = new Song()
             {
                 OwnerId = _userId,
@@ -30,7 +35,7 @@ namespace BeatsBy_J_Services
                 AlbumId = model.AlbumId,
                 Date = model.Date,
             };
-
+            //using (ctx)
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Songs.Add(entity);

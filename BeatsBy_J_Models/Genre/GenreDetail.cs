@@ -11,7 +11,7 @@ namespace BeatsBy_J_Models.Genre
     {
         public int GenreId { get; set; }
 
-        [Display(Name = "Choose Genre")]
+        //[Display(Name = "Choose Genre")]
         public int? SelectedGenreId { get; set; }
 
         public string GenreName { get; set; }
