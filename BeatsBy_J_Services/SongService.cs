@@ -74,6 +74,7 @@ namespace BeatsBy_J_Services
                     {
                         Title = song.Title,
                         ArtistName = song.Artist.ArtistName,
+                        GenreName = song.GenreName,
                         Date = dateAsString,
                         SongId = song.SongId
                     });
@@ -118,6 +119,7 @@ namespace BeatsBy_J_Services
                 //var entity = ctx.Songs.Include(e => e.Artist).Include(e => e.Album).Include(e => e.Genre).Include(e => e.RatingsForSong)
                 // .Single(e => e.SongId == songId);
 
+
                 var listOfRatings = new List<RatingForListInSongDetail>();
                 foreach (var rating in entity.RatingsForSong)
                 {
@@ -135,6 +137,7 @@ namespace BeatsBy_J_Services
                     ArtistId= entity.ArtistId,
                     ArtistName = entity.ArtistName,
                     GenreId = entity.GenreId,
+                    GenreName = ctx.Songs.FirstOrDefault(e => e.GenreId==entity.GenreId).GenreName,
                     AlbumId = entity.AlbumId,
                     //Artist = entity.Artist,
                     //Genre = entity.Genre,

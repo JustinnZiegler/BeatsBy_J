@@ -17,14 +17,23 @@ namespace BeatsBy_J_Models.Rating
 
         public double ArtistStyleScore { get; set; }
 
-        public double AverageRating
+        public double ScoreAverage
         {
             get
             {
                 var totalScore = EnjoymentScore + SongLengthScore + ArtistStyleScore;
-                return totalScore / 3;
+                return Math.Round(totalScore / 3, 2);
             }
         }
+
+        //public double AverageRating
+        //{
+        //    get
+        //    {
+        //        var totalScore = EnjoymentScore + SongLengthScore + ArtistStyleScore;
+        //        return totalScore / 3;
+        //    }
+        //}
 
         public string Description { get; set; }
 

@@ -55,10 +55,10 @@ namespace BeatsBy_J_Services
 
                 var namesOfSongs = new List<string>();
 
-                foreach (var song in entity.Albums)
-                {
-                    namesOfSongs.Add(song.Song.Title);
-                }
+                //foreach (var song in entity.Albums)
+                //{
+                //    namesOfSongs.Add(song.Song.Title);
+                //}
 
                 return new ArtistDetail()
                 {

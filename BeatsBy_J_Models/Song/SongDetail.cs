@@ -16,6 +16,8 @@ namespace BeatsBy_J_Models.Song
 
         public int GenreId { get; set; }
 
+        public string GenreName { get; set; }
+
         public int AlbumId { get; set; }
 
         public string Title { get; set; }
@@ -27,6 +29,8 @@ namespace BeatsBy_J_Models.Song
         //public Album Album { get; set; }
 
         public DateTime Date { get; set; }
+
+        //public List<Rating> RatingsForSong { get; set; } = new List<Rating>();
 
         public List<RatingForListInSongDetail> RatingsForSong { get; set; } = new List<RatingForListInSongDetail>();
 

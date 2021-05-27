@@ -42,6 +42,6 @@ namespace BeatsBy_J_Data
 
         public Song Song { get; set; }
 
-        // public virtual List<Rating> RatingsForSong { get; set; } = new List<Rating>();
+        //public virtual List<Rating> RatingsForSong { get; set; } = new List<Rating>();
     }
 }

@@ -14,6 +14,8 @@ namespace BeatsBy_J_Models.Song
 
         public string ArtistName { get; set; }
 
+        public string GenreName { get; set; }
+
         public string Date { get; set; }
     }
 }

@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.ArtistStyleScore)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AverageRating)
+            @Html.DisplayNameFor(model => model.ScoreAverage)
         </th>
         <th></th>
     </tr>
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.ArtistStyleScore)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AverageRating)
+            @Html.DisplayFor(modelItem => item.ScoreAverage)
         </td>
         <td>
             @Html.ActionLink("Edit", "Update", new { id=item.RatingId }) |

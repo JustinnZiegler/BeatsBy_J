@@ -19,6 +19,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.SongId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SongId)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.EnjoymentScore)
         </dt>
 
@@ -43,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AverageRating)
+            @Html.DisplayNameFor(model => model.ScoreAverage)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AverageRating)
+            @Html.DisplayFor(model => model.ScoreAverage)
         </dd>
 
         <dt>
@@ -58,21 +66,14 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.UserId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.UserId)
-        </dd>
+        </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SongId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SongId)
-        </dd>
 
     </dl>
 </div>
