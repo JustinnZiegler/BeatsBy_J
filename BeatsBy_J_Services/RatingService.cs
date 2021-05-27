@@ -33,9 +33,6 @@ namespace BeatsBy_J_Services
             {
                 ctx.Ratings.Add(entity);
 
-                /*var songEntity = ctx.Songs.Find(model.SongId);
-                songEntity.RatingsForSong.Add(entity);*/
-
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -62,12 +59,6 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Ratings.Find(ratingId);
-
-                /*var listOfRatings = new List<double>();
-                foreach (var rating in entity.RatingsForSong)
-                {
-                    listOfRatings.Add(rating.ScoreAverage);
-                }*/
 
                 return new RatingDetail()
                 {

@@ -52,12 +52,11 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Albums.Include(e => e.SongsInAlbum).Single(e => e.AlbumId == albumId);
-                var test = ctx.Songs.Where(e => e.AlbumId == albumId).ToList();
-                foreach (var item in test)
+                var album = ctx.Songs.Where(e => e.AlbumId == albumId).ToList();
+                foreach (var item in album)
                 {
                     entity.SongsInAlbum.Add(item);
                 }
-
 
                 var songsByAlbum = new List<string>();
                 foreach (var song in entity.SongsInAlbum)
