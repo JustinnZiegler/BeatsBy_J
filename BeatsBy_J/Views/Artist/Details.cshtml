@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var newBirthDate = Model.Birthdate.ToShortDateString();
 }
 
 <h2>Details</h2>
@@ -31,12 +32,12 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Birthdate)
+            @Html.DisplayFor(model => newBirthDate)
         </dd>
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Update", new { id = Model.ArtistId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Artist List", "Index")
 </p>

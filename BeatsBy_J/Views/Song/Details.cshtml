@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Details";
     var newDate = Model.Date.ToShortDateString();
-    
 }
 
 <h2>Details</h2>
@@ -65,7 +64,6 @@
         </dt>
 
         <dd>
-
             @Html.DisplayFor(model => newDate)
         </dd>
 
@@ -84,17 +82,9 @@
         <dd>
             @Html.DisplayFor(model => model.IsRecommended)
         </dd>
-
-        @*<dt>
-                @Html.DisplayNameFor(model => model.RatingsForSong)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.RatingsForSong)
-            </dd>*@
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Update", new { id = Model.SongId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Song List", "Index")
 </p>

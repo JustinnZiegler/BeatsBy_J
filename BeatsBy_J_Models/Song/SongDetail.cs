@@ -22,15 +22,7 @@ namespace BeatsBy_J_Models.Song
 
         public string Title { get; set; }
 
-        //public Artist Artist { get; set; }
-
-        //public Genre Genre { get; set; }
-
-        //public Album Album { get; set; }
-
         public DateTime Date { get; set; }
-
-        //public List<Rating> RatingsForSong { get; set; } = new List<Rating>();
 
         public List<RatingForListInSongDetail> RatingsForSong { get; set; } = new List<RatingForListInSongDetail>();
 

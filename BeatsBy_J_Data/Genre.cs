@@ -15,9 +15,6 @@ namespace BeatsBy_J_Data
         [Required]
         public string GenreName { get; set; }
 
-        [Display(Name = "Choose Genre")]
-        public int? SelectedGenreId { get; set; }
-
         public List<Song> SongsInGenre { get; set; } = new List<Song>();
     }
 }

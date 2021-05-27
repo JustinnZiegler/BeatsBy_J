@@ -18,21 +18,15 @@ namespace BeatsBy_J_Services
         {
             _userId = userId;
         }
-        //private GenreService _genreService = new GenreService(_userId);
         public bool CreateSong(SongCreate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                //var _genreService = new GenreService(_userId);
-                //var ctx = new ApplicationDbContext();
-                //var Genre = _genreService.GetGenreByName(model.GenreName);
-                //var GenreId = Genre.GenreId;
                 string genreName = "";
                 foreach (var item in ctx.Genres.ToList())
                 {
                     if (item.GenreId == model.GenreId)
                         genreName = item.GenreName;
-
                 }
             var entity = new Song()
             {
@@ -45,7 +39,6 @@ namespace BeatsBy_J_Services
                 AlbumId = model.AlbumId,
                 Date = model.Date,
             };
-            //using (ctx)
                 ctx.Songs.Add(entity);
                 var artistEntity = ctx.Artists.Find(model.ArtistId);
                 artistEntity.SongsByArtist.Add(entity);
@@ -55,15 +48,10 @@ namespace BeatsBy_J_Services
                 {
                     if (item.GenreName == model.GenreName)
                     {
-
                         var genreEntity = ctx.Genres.Find(item.GenreId);
                         genreEntity.SongsInGenre.Add(entity);
                     }
                 }
-                //var albumEntity = ctx.Albums.Find(model.AlbumId);
-
-                //albumEntity.SongsInAlbum.Add(entity);
-
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -98,7 +86,6 @@ namespace BeatsBy_J_Services
                         SongId = song.SongId
                     });
                 }
-
                 return listOfSongs.ToArray();
             }
         }
@@ -121,7 +108,6 @@ namespace BeatsBy_J_Services
                         SongId = song.SongId
                     });
                 }
-
                 return listOfSongs.ToArray();
             }
         }
@@ -132,12 +118,7 @@ namespace BeatsBy_J_Services
             {
                 var entity = ctx.Songs.Find(songId);
 
-                // Aaron's Edit
                 var ratingDb = ctx.Ratings.Find(songId);
-
-                //var entity = ctx.Songs.Include(e => e.Artist).Include(e => e.Album).Include(e => e.Genre).Include(e => e.RatingsForSong)
-                // .Single(e => e.SongId == songId);
-
 
                 var listOfRatings = new List<RatingForListInSongDetail>();
                 foreach (var rating in entity.RatingsForSong)
@@ -158,9 +139,6 @@ namespace BeatsBy_J_Services
                     GenreId = entity.GenreId,
                     GenreName = ctx.Songs.FirstOrDefault(e => e.GenreId==entity.GenreId).GenreName,
                     AlbumId = entity.AlbumId,
-                    //Artist = entity.Artist,
-                    //Genre = entity.Genre,
-                    //Album = entity.Album,
                     Date = entity.Date,
                     AverageRating = entity.AverageRating,
                     IsRecommended = entity.IsRecommended,
@@ -174,8 +152,6 @@ namespace BeatsBy_J_Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Songs.Find(songName);
-                //var entity = ctx.Songs.Include(e => e.Artist).Include(e => e.Album).Include(e => e.Genre).Include(e => e.RatingsForSong)
-                //    .Single(e => e.Title == songName);
 
                 var listOfRatings = new List<RatingForListInSongDetail>();
                 foreach (var rating in entity.RatingsForSong)
@@ -194,7 +170,6 @@ namespace BeatsBy_J_Services
                     ArtistName = entity.Artist.ArtistName,
                     ArtistId = (int)entity.ArtistId,
                     GenreId = entity.GenreId,
-                    //Album = entity.Album,
                     Date = entity.Date,
                     AverageRating = entity.AverageRating,
                     IsRecommended = entity.IsRecommended,
@@ -217,7 +192,6 @@ namespace BeatsBy_J_Services
 
                 int? artistId = entity.ArtistId;
                 int genreId = entity.GenreId;
-                //int albumId = entity.AlbumId;
 
                 entity.Title = model.Title;
                 entity.Date = model.Date;
@@ -242,15 +216,6 @@ namespace BeatsBy_J_Services
                     var newGenreEntity = ctx.Genres.Find(entity.GenreId);
                     newGenreEntity.SongsInGenre.Add(entity);
                 }
-                //if (albumId != entity.AlbumId)
-                //{
-                //    var albumEntity = ctx.Albums.Find(albumId);
-                //    albumEntity.SongsInAlbum.Remove(entity);
-
-                //    var newAlbumEntity = ctx.Albums.Find(entity.AlbumId);
-                //    newAlbumEntity.SongsInAlbum.Add(entity);
-                //}
-
                 return ctx.SaveChanges() == 1;
             }
         }

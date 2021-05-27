@@ -15,7 +15,6 @@ namespace BeatsBy_J.Controllers
     {
         private ApplicationDbContext _service = new ApplicationDbContext();
 
-        // GET: Rating
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -15,14 +15,12 @@ namespace BeatsBy_J.Controllers
     {
         private ApplicationDbContext _service = new ApplicationDbContext();
 
-        // GET: Artist
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ArtistService(userId);
             var model = service.GetAllArtists();
             List<Artist> artistList = _service.Artists.ToList();
-            //List<Artist> orderedList = (List<Artist>)artistList.OrderBy(alpha => alpha.ArtistName);
 
             return View(model);
         }
@@ -122,23 +120,15 @@ namespace BeatsBy_J.Controllers
         {
             var _service = CreateArtistService();
 
-            bool test = _service.DeleteArtist(id);
-            if (test)
+            bool deleting = _service.DeleteArtist(id);
+            if (deleting)
             {
-
                 TempData["SaveResult"] = "Your Artist was deleted.";
                 return RedirectToAction(nameof(Index));
             }
-            //else
-            //{
-            //    //return RedirectToAction($"Delete/{id}");
+            TempData["NotDeleted"] = "Please Delete Songs/Albums for this Artist First.";
+            return RedirectToAction(nameof(Index));
 
-            //}
-                TempData["NotDeleted"] = "Please Delete Songs/Albums for this Artist First.";
-                return RedirectToAction(nameof(Index));
-
-
-            //return RedirectToAction("Index");
         }
 
         private ArtistService CreateArtistService()

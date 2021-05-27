@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace BeatsBy_J_Services
 {
@@ -54,11 +55,6 @@ namespace BeatsBy_J_Services
                 var entity = ctx.Artists.Include(e => e.Albums).Single(e => artistId == e.ArtistId);
 
                 var namesOfSongs = new List<string>();
-
-                //foreach (var song in entity.Albums)
-                //{
-                //    namesOfSongs.Add(song.Song.Title);
-                //}
 
                 return new ArtistDetail()
                 {
@@ -110,15 +106,20 @@ namespace BeatsBy_J_Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Artists.Single(e => e.ArtistId == artistId);
-                int initialCount = ctx.Artists.Count();
-                //get a count of artists before delete and after, then base your if statement off of that
-                ctx.Artists.Remove(entity);
-                if (initialCount >= ctx.Artists.Count())
+                try
+                {
+                    var entity = ctx.Artists.Single(e => e.ArtistId == artistId);
+                    int initialCount = ctx.Artists.Count();
+                    var testing = ctx.Artists.Find(artistId);
+                    ctx.Artists.Remove(testing);
+                    ctx.SaveChanges();
+                    return true;
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException)
                 {
                     return false;
                 }
-                return ctx.SaveChanges() == 1;
+
             }
         }
     }

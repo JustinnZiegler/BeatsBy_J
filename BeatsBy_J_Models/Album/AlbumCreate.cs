@@ -11,8 +11,6 @@ namespace BeatsBy_J_Models.Album
     {
         public int ArtistId { get; set; }
 
-        public int SongId { get; set; }
-
         [Required]
         [MaxLength(100, ErrorMessage = "Album Name is too long. Gonna need a record for that name.")]
         public string AlbumName { get; set; }

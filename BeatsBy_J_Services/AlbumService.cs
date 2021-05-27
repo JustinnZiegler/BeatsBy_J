@@ -22,7 +22,6 @@ namespace BeatsBy_J_Services
             {
                 ArtistId = model.ArtistId,
                 AlbumName = model.AlbumName,
-                //SongId = model.SongId,
                 AlbumReleaseDate = model.AlbumReleaseDate,
             };
 

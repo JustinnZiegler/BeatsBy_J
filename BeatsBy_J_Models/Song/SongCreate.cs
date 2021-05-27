@@ -9,7 +9,6 @@ namespace BeatsBy_J_Models.Song
 {
     public class SongCreate
     {
-        //[Required]
         [MaxLength(100, ErrorMessage = "Title is too long. Please shorten that shit down.")]
         public string Title { get; set; }
 
@@ -17,18 +16,12 @@ namespace BeatsBy_J_Models.Song
 
         public string ArtistName { get; set; }
 
-        //public Artist Artist { get; set; }
         public int GenreId { get; set; }
 
         public string GenreName { get; set; }
 
-        // public virtual Genre Genre { get; set; }
-
         public int AlbumId { get; set; }
 
-        // public Album Album { get; set; }
-
-        //[Required]
         public DateTime Date { get; set; }
     }
 }

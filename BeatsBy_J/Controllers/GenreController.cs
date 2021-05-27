@@ -17,14 +17,11 @@ namespace BeatsBy_J.Controllers
     {
         private ApplicationDbContext _service = new ApplicationDbContext();
 
-        // GET: Genre
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new GenreService(userId);
             var model = service.GetAllGenres();
-            //List<Genre> genreList = _service.Genres.ToList();
-            //List<Genre> orderedList = (List<Genre>)genreList.OrderBy(alpha => alpha.GenreName);
 
             return View(model);
         }
@@ -53,7 +50,6 @@ namespace BeatsBy_J.Controllers
             return View(model);
         }
 
-        //public ActionResult GetSongsByGenre(int id)
         public ActionResult Details(int id)
         {
             var svc = CreateGenreService();
@@ -142,34 +138,25 @@ namespace BeatsBy_J.Controllers
 
         public ActionResult DropDownIndex()
         {
-            // Initialization.  
             GenreDetail model = new GenreDetail();
 
-            // Settings.  
             model.SelectedGenreId = 0;
 
-            // Loading drop down lists.  
-            //this.ViewBag.GenreList = this.GetGenreList();
             ViewBag.GenreList = new SelectList(_service.Genres, "GenreId", "GenreName");
 
-            // Info.  
             return this.View(model);
         }
 
         #endregion
-
         #region Helpers  
-
         #region Load Data  
 
         private List<Genre> LoadData()
         {
-            // Initialization.  
             List<Genre> lst = new List<Genre>();
 
             try
             {
-                // Initialization.  
                 string line = string.Empty;
                 string srcFilePath = "content/files/genre_list.txt";
                 var rootPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
@@ -177,47 +164,37 @@ namespace BeatsBy_J.Controllers
                 string filePath = new Uri(fullPath).LocalPath;
                 StreamReader sr = new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read));
 
-                // Read file.  
                 while ((line = sr.ReadLine()) != null)
                 {
-                    // Initialization.  
                     Genre infoObj = new Genre();
                     string[] info = line.Split(',');
 
-                    // Setting.  
                     infoObj.GenreId = Convert.ToInt32(info[0].ToString());
                     infoObj.GenreName = info[1].ToString();
 
-                    // Adding.  
                     lst.Add(infoObj);
                 }
 
-                // Closing.  
                 sr.Dispose();
                 sr.Close();
             }
             catch (Exception ex)
             {
-                // info.  
                 Console.Write(ex);
             }
 
-            // info.  
             return lst;
         }
 
         #endregion
-
         #region Get roles method.  
 
         private IEnumerable<SelectListItem> GetGenreList()
         {
-            // Initialization.  
             SelectList lstobj = null;
 
             try
             {
-                // Loading.  
                 var list = this.LoadData()
                                   .Select(p =>
                                             new SelectListItem
@@ -225,22 +202,15 @@ namespace BeatsBy_J.Controllers
                                                 Value = p.GenreId.ToString(),
                                                 Text = p.GenreName
                                             });
-
-                // Setting.  
                 lstobj = new SelectList(list, "Value", "Text");
             }
             catch (Exception ex)
             {
-                // Info  
                 throw ex;
             }
-
-            // info.  
             return lstobj;
         }
-
         #endregion
-
         #endregion
     }
 }

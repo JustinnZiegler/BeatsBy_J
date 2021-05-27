@@ -10,8 +10,6 @@ namespace BeatsBy_J_Models.Genre
     {
         public int GenreId { get; set; }
 
-        //[Display(Name = "Choose Genre")]
-        //public string SelectedGenreName { get; set; }
         public string GenreName { get; set; }
     }
 }

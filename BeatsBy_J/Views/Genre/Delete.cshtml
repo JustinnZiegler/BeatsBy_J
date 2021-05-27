@@ -19,13 +19,9 @@
             @Html.DisplayFor(model => model.GenreId)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SelectedGenreId)
-        </dt>
-
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.SelectedGenreId)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.GenreName)
@@ -42,7 +38,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Genre List", "Index")
         </div>
     }
 </div>

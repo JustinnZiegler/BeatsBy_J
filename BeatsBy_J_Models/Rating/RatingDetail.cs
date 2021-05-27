@@ -26,15 +26,6 @@ namespace BeatsBy_J_Models.Rating
             }
         }
 
-        //public double AverageRating
-        //{
-        //    get
-        //    {
-        //        var totalScore = EnjoymentScore + SongLengthScore + ArtistStyleScore;
-        //        return totalScore / 3;
-        //    }
-        //}
-
         public string Description { get; set; }
 
         public Guid UserId { get; set; }

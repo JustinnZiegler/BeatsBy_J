@@ -15,14 +15,11 @@ namespace BeatsBy_J.Controllers
     {
         private ApplicationDbContext _service = new ApplicationDbContext();
 
-        // GET: Album
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new AlbumService(userId);
             var model = service.GetAlbums();
-            //List<Album> albumList = _service.Albums.ToList();
-            //List<Album> orderedList = (List<Album>)albumList.OrderBy(alpha => alpha.AlbumName);
 
             return View(model);
         }

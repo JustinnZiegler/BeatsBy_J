@@ -44,11 +44,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AverageRating)
+            @Html.DisplayNameFor(model => model.ScoreAverage)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AverageRating)
+            @Html.DisplayFor(model => model.ScoreAverage)
         </dd>
 
         <dt>
@@ -60,21 +60,12 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.SongId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.SongId)
         </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
@@ -82,7 +73,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Rating List", "Index")
         </div>
     }
 </div>

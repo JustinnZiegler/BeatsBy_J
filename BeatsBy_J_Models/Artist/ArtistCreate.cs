@@ -9,8 +9,6 @@ namespace BeatsBy_J_Models.Artist
 {
     public class ArtistCreate
     {
-        public int ArtistId { get; set; }
-
         [Required]
         public string ArtistName { get; set; }
 

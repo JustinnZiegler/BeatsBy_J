@@ -15,7 +15,6 @@ namespace BeatsBy_J.Controllers
     {
         private ApplicationDbContext _service = new ApplicationDbContext();
 
-        // GET: Song
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -97,7 +96,6 @@ namespace BeatsBy_J.Controllers
                     ArtistId = detail.ArtistId,
                     GenreId = detail.GenreId,
                     AlbumId = detail.AlbumId,
-                    //Album = detail.Album,
                     Date = detail.Date
                 };
             return View(model);
@@ -117,7 +115,6 @@ namespace BeatsBy_J.Controllers
             }
 
             var _service = CreateSongService();
-            //ViewData["Genres"] = _service.GetGenres();
             if (_service.UpdateSong(model))
             {
                 TempData["SaveResult"] = "Your song was updated.";

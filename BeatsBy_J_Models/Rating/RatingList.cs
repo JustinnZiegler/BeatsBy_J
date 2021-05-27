@@ -24,13 +24,5 @@ namespace BeatsBy_J_Models.Rating
                 return Math.Round(totalScore / 3, 2);
             }
         }
-        //public double AverageRating
-        //{
-        //    get
-        //    {
-        //        var totalScore = EnjoymentScore + SongLengthScore + ArtistStyleScore;
-        //        return totalScore / 3;
-        //    }
-        //}
     }
 }

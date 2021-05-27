@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
+    var newBirthDate = Model.Birthdate.ToShortDateString();
 }
 
 <h2>Delete</h2>
@@ -42,7 +43,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Birthdate)
+            @Html.DisplayFor(model => newBirthDate)
         </dd>
 
     </dl>
@@ -53,7 +54,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Artist List", "Index")
         </div>
     }
 </div>
